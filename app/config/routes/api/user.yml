@@ -1,0 +1,4 @@
+register_user:
+  path: /users
+  controller: App\UserInterface\REST\Users\UserController::registerUser
+  methods: POST

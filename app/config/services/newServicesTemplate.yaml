@@ -1,0 +1,14 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    # controllers
+    users_api:
+        namespace: App\UserInterface\REST\Users\
+        resource: '../../src/UserInterface/REST/Users/*'
+        tags: ['controller.service_arguments']
+
+    # command handlers
+
+    # repositories

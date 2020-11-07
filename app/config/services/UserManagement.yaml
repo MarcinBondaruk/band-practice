@@ -1,0 +1,18 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    # controllers
+    users_api:
+        namespace: App\UserInterface\REST\Users\
+        resource: '../../src/UserInterface/REST/Users/*'
+        tags: ['controller.service_arguments']
+
+    # command handlers
+    App\Core\Components\UserManagement\Application\Write\Command\CreateUserCommandHandler: ~
+
+    # repositories
+    App\Core\Components\UserManagement\Application\Write\Repository\UserRepository:
+        class: App\Infrastructure\Persistence\Doctrine\Repository\DoctrineUserRepository
+

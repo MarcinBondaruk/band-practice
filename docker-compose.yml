@@ -1,0 +1,21 @@
+version: '3.7'
+services:
+  bandpractice-app:
+    image: bandpractice-app:dev
+    container_name: bandpractice-app
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+      target: production
+    ports:
+      - "1805:1805"
+    depends_on:
+      - mysql-dev
+
+  mysql-dev:
+    image: mysql:8.0.21
+    container_name: mysql-dev
+    environment:
+      MYSQL_ROOT_PASSWORD: bender123
+    volumes:
+      - ./app/database/mysql/scripts:/docker-entrypoint-initdb.d
